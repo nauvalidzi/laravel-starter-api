@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('address');
             $table->char('city', 50);
             $table->char('state', 50);
-            $table->char('country', 50);
+            $table->string('country');
             $table->string('website')->nullable();
             $table->char('latitude', 50)->nullable();
             $table->char('longitude', 50)->nullable();

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Person>
@@ -26,9 +27,9 @@ class PersonFactory extends Factory
             'last_name' => $lastName,
             'gender' => $boolean ? 'Male' : 'Female',
             'phone' => fake()->e164PhoneNumber(),
-            'email' => strtolower($firstName) . '.' . strtolower($lastName) . '@'. explode('@', fake()->freeEmail())[1],
+            'email' => Str::slug($firstName) . '.' . Str::slug($lastName) . fake()->date('y') . '@'. explode('@', fake()->freeEmail())[1],
             'joined' => fake()->date(),
-            'bio' => fake()->realText(50)
+            'bio' => fake()->realText(200)
         ];
     }
 }

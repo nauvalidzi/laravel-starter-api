@@ -23,7 +23,8 @@ class PersonResource extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'joined' => $this->joined,
-            'bio' => $this->bio
+            'bio' => $this->bio,
+            'address' => AddressResource::collection($this->whenLoaded('address'))
         ];
     }
 }

@@ -19,4 +19,9 @@ class Person extends Model
         'joined',
         'bio'
     ];
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
 }
